@@ -5,10 +5,12 @@
 <p><strong>Laravel 8.0 en Api</strong> (Auth passport) test api avec Postman</p>
 <p><strong>Vuejs 2.6 en Front</strong> (axios, vuex, vue-router)</p>
 <p><strong>bootstrap 4 css</strong></p>
+<p><strong>mysql et phpmyadmin</strong></p>
 
 
 <p>Realise une application d'attribution de PC pour un centre culturel</p>
 <p>wireframe realiser avec wireframe.cc <p>
+
 
 # Pré-requis
 
