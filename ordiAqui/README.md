@@ -2,11 +2,11 @@
 
 <h2> ordiAqui Projet Simplon <h2>
 
-<strong>Laravel 8.0 en Api</strong>
-<strong>Vuejs 2.6 en Front</strong>
-<strong>Bootstrat 4 css</strong>
+<p><strong>Laravel 8.0 en Api</strong></p>
+<p><strong>Vuejs 2.6 en Front</strong></p>
+<p><strong>Bootstrat 4 css</strong></p>
 
-Realise une application d'attribution de PC pour un centre culturel
+<p>Realise une application d'attribution de PC pour un centre culturel</p>
 
 # Pré-requis
 
