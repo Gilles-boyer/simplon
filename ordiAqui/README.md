@@ -2,9 +2,9 @@
 
 <h2> ordiAqui Projet Simplon <h2>
 
-<p><strong>Laravel 8.0 en Api</strong></p>
-<p><strong>Vuejs 2.6 en Front</strong></p>
-<p><strong>Bootstrat 4 css</strong></p>
+<p><strong>Laravel 8.0 en Api</strong> (Auth passport)</p>
+<p><strong>Vuejs 2.6 en Front</strong> (axios, vuex, vue-router)</p>
+<p><strong>bootstrap 4 css</strong></p>
 
 <p>Realise une application d'attribution de PC pour un centre culturel</p>
 
