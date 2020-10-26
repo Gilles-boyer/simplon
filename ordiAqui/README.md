@@ -1,16 +1,14 @@
 # simplon
 
-ordiAqui Projet Simplon
+<h2> ordiAqui Projet Simplon <h2>
 
-Laravel 8.0 en Api
-Vuejs 2.6 en Front
-Bootstrat 4 css
-
-forthebadge forthebadge
+<strong>Laravel 8.0 en Api</strong>
+<strong>Vuejs 2.6 en Front</strong>
+<strong>Bootstrat 4 css</strong>
 
 Realise une application d'attribution de PC pour un centre culturel
 
-Pré-requis
+# Pré-requis
 
 Git Clone du dossier pour avoir le projet en local
 
@@ -23,7 +21,7 @@ voir README dans chaque dossier pour l'installation :
 
 # Accés au site
 
-<a>https://admiring-golick-db1ac6.netlify.app</a>
+<a>https://admiring-golick-db1ac6.netlify.app/#/</a>
 
 # Versions v1
 
