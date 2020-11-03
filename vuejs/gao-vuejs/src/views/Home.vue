@@ -8,11 +8,14 @@
         cols="auto"
         md="3"
         lg="3"
-        v-for="computerData in getListComputers"
-        :key="computerData.id"
+        v-for="(computerData, index) in getListComputers"
+        :key="index"
       >
         <!-- component Computer -->
-        <cardComputer :computer="computerData"></cardComputer>
+        <cardComputer 
+          :computer="computerData"
+          :indexPC="index" 
+        ></cardComputer>
         <!-- ------------------ -->
       </v-col>
     </v-row>

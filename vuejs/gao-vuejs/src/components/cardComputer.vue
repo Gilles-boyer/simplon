@@ -1,25 +1,56 @@
 <template>
   <v-card>
     <v-card-title class="d-flex justify-md-space-between text-light bg-primary">
-      {{ computer.name }}
-      <v-btn icon><v-icon color="red" >mdi-delete</v-icon></v-btn>
+      <v-row>
+        <v-col md="9">
+          {{ computer.name }}
+        </v-col>
+        <v-col md="3">
+          <!-- Modal delete computer -->
+          <deleteComputer :pc="computer" :index="indexPC" />
+          <!-- --------------------- -->
+        </v-col>
+      </v-row>
     </v-card-title>
 
-     <v-card-text> 
-       <v-row v-for="(attribution, index) in computer.attributions" :key="index"> 
-         <v-col  md="2" class="font-weight-bold" >
-           {{ attribution.hours }} 
-         </v-col>
-         <v-col  md="7" class="text-center font-weight-bold text-primary"  >
-           {{ attribution.client.nickName }}
-         </v-col>
-         <v-col  md="2" >
-
-         </v-col>
-       </v-row>
-      </v-card-text>
+    <v-card-text>
+      <!--title col -->
+      <v-row>
+        <v-col align-self="center" md="3" class="font-weight-bold">
+          {{ "Heure" }}
+        </v-col>
+        <v-col
+          align-self="center"
+          md="6"
+          class="text-center font-weight-bold text-primary"
+        >
+          {{ "Nom du client" }}
+        </v-col>
+        <v-col md="3"> </v-col>
+      </v-row>
+      <!-- -------- -->
+      <v-row v-for="(attribution, index) in computer.attributions" :key="index">
+        <v-col align-self="center" md="3" class="font-weight-bold">
+          {{ attribution.hours }}
+        </v-col>
+        <v-col
+          align-self="center"
+          md="6"
+          class="text-center font-weight-bold text-primary"
+        >
+          {{ attribution.client.nickName }}
+        </v-col>
+        <v-col align-self="center" class="text-center" md="3">
+          <v-btn v-if="!attribution.client.nickName" color="success" icon
+            ><v-icon>mdi-plus</v-icon></v-btn
+          >
+          <v-btn v-if="attribution.client.nickName" color="red" icon
+            ><v-icon>mdi-delete</v-icon></v-btn
+          >
+        </v-col>
+      </v-row>
+    </v-card-text>
   </v-card>
-     
 </template>
 <script src="./js/cardComputer.js">
 </script>

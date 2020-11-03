@@ -1,9 +1,18 @@
+import deleteComputer from "../modal/deleteComputer"
+
 export default {
     name: 'cardComputer',
+    components: {
+        deleteComputer,
+    },
     props: {
         computer: {
             type: Object,
             default: () => [{ id: null, name: null }],
+        },
+        indexPC: {
+            type: Number,
+            required: true
         }
     },
     methods: {
