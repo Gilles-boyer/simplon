@@ -1,8 +1,11 @@
 import { mapGetters } from 'vuex'
+import cardComputer from '../../components/cardComputer'
 
 export default {
     name: 'Home',
-    components: {},
+    components: {
+        cardComputer
+    },
     computed: {
         ...mapGetters(['listComputers'])
     },
