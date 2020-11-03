@@ -1,13 +1,22 @@
 <template>
-  <v-row>
-      <v-col 
-        cols="auto" 
-        md="3" lg="3"  
-        v-for="computerData in listComputers" :key="computerData.id"
+  <div class="home">
+    <!--Modal addComputer -->
+    <addComputer></addComputer>
+    <!-- ---------------- -->
+    <v-row>
+      <v-col
+        cols="auto"
+        md="3"
+        lg="3"
+        v-for="computerData in getListComputers"
+        :key="computerData.id"
       >
-        <cardComputer :computer = computerData ></cardComputer>
+        <!-- component Computer -->
+        <cardComputer :computer="computerData"></cardComputer>
+        <!-- ------------------ -->
       </v-col>
-  </v-row>
+    </v-row>
+  </div>
 </template>
 
 <script src="./js/home.js"></script>

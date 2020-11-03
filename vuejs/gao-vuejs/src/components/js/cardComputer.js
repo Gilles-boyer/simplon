@@ -6,11 +6,4 @@ export default {
             default: () => [{ id: null, name: null }],
         }
     },
-    components: {},
-    computed: {
-
-    },
-    mounted() {
-        console.log(this.computer)
-    },
 }

@@ -12,13 +12,19 @@ export default new Vuex.Store({
         ],
     },
     getters: {
-        listComputers: state => {
+        getListComputers: state => {
             return state.computers
         }
     },
     mutations: {
-
+        SET_LIST_COMPUTERS(state, data) {
+            state.computers.push(data)
+        }
     },
-    actions: {},
+    actions: {
+        addNewComputer(context, data) {
+            context.commit('SET_LIST_COMPUTERS', data)
+        }
+    },
     modules: {}
 })
