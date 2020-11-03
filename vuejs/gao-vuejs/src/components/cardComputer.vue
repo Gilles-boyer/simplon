@@ -5,7 +5,10 @@
       <v-btn icon><v-icon>mdi-delete</v-icon></v-btn>
     </v-card-title>
 
-     <v-card-text> {{computer.id}} </v-card-text>
+     <v-card-text v-for="(attribution, index) in computer.attributions" :key="index"> 
+       {{ attribution.hours }} 
+       {{attribution.client.nickName}}
+      </v-card-text>
   </v-card>
      
 </template>
