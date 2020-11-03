@@ -30,6 +30,8 @@ export default {
                 attributions: []
             }
             this.addNewComputer(data)
+            this.name = ""
+            this.dialog = false
         },
 
         ...mapActions(['addNewComputer'])

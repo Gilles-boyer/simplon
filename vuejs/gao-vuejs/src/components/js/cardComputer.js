@@ -1,9 +1,11 @@
 import deleteComputer from "../modal/deleteComputer"
+import deleteAttribution from "../modal/deleteAttribution"
 
 export default {
     name: 'cardComputer',
     components: {
         deleteComputer,
+        deleteAttribution,
     },
     props: {
         computer: {
@@ -21,7 +23,7 @@ export default {
             for (let index = 8; index <= 18; index++) {
                 var attribution = {
                     id: null,
-                    hours: index,
+                    hours: index + "h00",
                     client: {
                         id: null,
                         nickName: null,
@@ -29,7 +31,8 @@ export default {
                 }
                 if (this.computer.attributions.length > 0) {
                     for (let i = 0; i < this.computer.attributions.length; i++) {
-                        if (attribution.hours == this.computer.attributions[i].hours) {
+                        if (attribution.hours == this.computer.attributions[i].hours + "h00") {
+                            this.computer.attributions[i].hours = this.computer.attributions[i].hours + "h00"
                             attribution = this.computer.attributions[i]
                         }
                     }

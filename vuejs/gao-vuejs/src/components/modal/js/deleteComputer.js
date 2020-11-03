@@ -21,6 +21,7 @@
               } else {
                   this.$store.state.computers.splice(this.index, this.index)
               }
+              this.dialog = false
 
           }
       },

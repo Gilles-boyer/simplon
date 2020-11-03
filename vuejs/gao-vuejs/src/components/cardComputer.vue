@@ -44,9 +44,12 @@
           <v-btn v-if="!attribution.client.nickName" color="success" icon
             ><v-icon>mdi-plus</v-icon></v-btn
           >
-          <v-btn v-if="attribution.client.nickName" color="red" icon
-            ><v-icon>mdi-delete</v-icon></v-btn
-          >
+          <!-- modal delete Attribution -->
+          <deleteAttribution
+            v-if="attribution.client.nickName"
+            :attribu="attribution"
+          />
+          <!-- ------------------------ -->
         </v-col>
       </v-row>
     </v-card-text>
