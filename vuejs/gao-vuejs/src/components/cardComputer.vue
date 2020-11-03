@@ -41,9 +41,10 @@
           {{ attribution.client.nickName }}
         </v-col>
         <v-col align-self="center" class="text-center" md="3">
-          <v-btn v-if="!attribution.client.nickName" color="success" icon
-            ><v-icon>mdi-plus</v-icon></v-btn
-          >
+          <addAttributionWithAutocomplete 
+            v-if="!attribution.client.nickName"
+            :attribu="attribution"
+          />
           <!-- modal delete Attribution -->
           <deleteAttribution
             v-if="attribution.client.nickName"

@@ -1,11 +1,13 @@
 import deleteComputer from "../modal/deleteComputer"
 import deleteAttribution from "../modal/deleteAttribution"
+import addAttributionWithAutocomplete from "../modal/addAttributionWithAutocomplete"
 
 export default {
     name: 'cardComputer',
     components: {
         deleteComputer,
         deleteAttribution,
+        addAttributionWithAutocomplete,
     },
     props: {
         computer: {
