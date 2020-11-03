@@ -26,7 +26,8 @@ export default {
         addComputer() {
             var data = {
                 id: 4,
-                name: this.name
+                name: this.name,
+                attributions: []
             }
             this.addNewComputer(data)
         },
