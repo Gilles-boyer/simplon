@@ -1,5 +1,9 @@
+import addAttributionWithName from "../addAttributionWithName"
 export default {
     props: ['attribu'],
+    components: {
+        addAttributionWithName
+    },
     data() {
         return {
             isEditing: null,
@@ -34,6 +38,7 @@ export default {
                 const textOne = item.nickName.toLowerCase();
                 const searchText = queryText.toLowerCase();
                 var result = textOne.indexOf(searchText) > -1;
+
                 if (!result) {
                     this.buttonCreate = true
                     this.invalid = true

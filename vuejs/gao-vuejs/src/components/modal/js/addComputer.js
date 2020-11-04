@@ -10,7 +10,6 @@ export default {
         rules: {
             required: value => !!value || 'Required.',
             min: v => v.length >= 3 || 'Min 3 characters',
-            emailMatch: () => (`merci de saisir un nom svp`),
         },
     }),
 

@@ -37,9 +37,13 @@
                 ></v-autocomplete>
               </v-col>
               <v-col cols="2" align-self="center">
-                <v-btn v-if="buttonCreate" icon color="success"
-                  ><v-icon>mdi-plus</v-icon><v-icon>mdi-account</v-icon></v-btn
-                >
+                <!-- Modal attribution with create user -->
+                <addAttributionWithName 
+                  v-if="buttonCreate" 
+                  :attribution="attribu" 
+                  @bool="dialog=$event"
+                />
+                <!-- ---------------------------------- -->
               </v-col>
             </v-row>
           </v-container>
