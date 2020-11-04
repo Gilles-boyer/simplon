@@ -1,8 +1,14 @@
 <template>
   <div class="home">
+
+    <!-- DatePicker -->
+    <datePicker />
+    <!-- ---------- -->
+
     <!--Modal addComputer -->
     <addComputer></addComputer>
     <!-- ---------------- -->
+
     <v-row>
       <v-col
         cols="auto"
@@ -19,6 +25,7 @@
         <!-- ------------------ -->
       </v-col>
     </v-row>
+    
   </div>
 </template>
 

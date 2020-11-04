@@ -28,21 +28,32 @@ export default new Vuex.Store({
                 attributions: [],
             },
         ],
+
+        date: new Date().toISOString().substr(0, 10),
     },
     getters: {
         getListComputers: state => {
             return state.computers
+        },
+        getDate: state => {
+            return state.date
         }
     },
     mutations: {
         SET_LIST_COMPUTERS(state, data) {
             state.computers.push(data)
         },
+        SET_DATE(state, date) {
+            state.date = date
+        }
     },
     actions: {
         addNewComputer(context, data) {
             context.commit('SET_LIST_COMPUTERS', data)
         },
+        changeDate(context, date) {
+            context.commit('SET_DATE', date)
+        }
     },
     modules: {}
 })
