@@ -16,12 +16,17 @@
       <v-card>
         <v-card-title class="d-flex justify-content-between">
           <span class="headline">Ajouter un Ordinateur</span>
-          <v-btn icon color="red" @click="dialog = false">
+          <v-btn icon color="red" @click="close()">
             <v-icon>mdi-close-circle</v-icon>
           </v-btn>
         </v-card-title>
         <v-card-text>
           <v-container>
+
+          <v-alert v-show="error" border="top" color="red lighten-2" dark>
+            {{ error }}
+          </v-alert>
+
             <v-row>
               <v-col cols="12">
                 <v-text-field
@@ -48,6 +53,9 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- snackbar confirmation message -->
+    <snackbar :text="confirmation" />
+    <!-- ----------------------------- -->
   </v-row>
 </template>
 

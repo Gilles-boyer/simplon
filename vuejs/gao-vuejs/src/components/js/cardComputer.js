@@ -47,4 +47,9 @@ export default {
     mounted() {
         this.attribution()
     },
+    watch: {
+        computer: function() {
+            this.attribution()
+        }
+    },
 }

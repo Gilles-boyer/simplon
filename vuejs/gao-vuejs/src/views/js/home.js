@@ -13,5 +13,10 @@ export default {
     computed: {
         ...mapGetters(['getListComputers'])
     },
-    methods: {},
+    methods: {
+        ...mapActions(['listOfPc'])
+    },
+    created() {
+        this.listOfPc()
+    },
 }
