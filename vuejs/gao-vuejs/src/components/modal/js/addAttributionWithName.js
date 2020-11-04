@@ -14,8 +14,18 @@ export default {
         }
     },
     methods: {
+        strUcFirst: function(a) {
+            return (a + "").charAt(0).toUpperCase() + a.substr(1);
+        },
         addAttribution() {
+            var firstName = this.firstName.toLowerCase();
+            firstName = this.strUcFirst(firstName);
 
+            var lastName = this.lastName.toUpperCase();
+
+            var nickName = firstName + " " + lastName;
+
+            this.attribution.client.nickName = nickName;
         },
         verifyData() {
             if (this.firstName.length > 2 && typeof(this.firstName) == "string" && this.lastName.length > 2) {
