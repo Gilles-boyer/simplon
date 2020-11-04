@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Computer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\ComputerCollection;
 
 class ComputerController extends Controller
 {
@@ -16,20 +18,7 @@ class ComputerController extends Controller
     {
         $computers = Computer::all();
 
-        return response()->json([
-            'computers' => $computers,
-            'response' => true
-        ],200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return ComputerCollection::collection($computers);
     }
 
     /**
@@ -40,7 +29,38 @@ class ComputerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make( $request->all(),
+        [
+            'name' => 'required|string|max:100',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error'      => true,
+                'errorList'  => $validator->errors()
+            ]);
+        }
+
+        $computer = new Computer();
+
+        $computer->name = $request->name;
+
+        $result = $computer->save();
+
+        $computers = Computer::all();
+
+        if ($result) {
+            return response()->json([
+                'error'  => false,
+                'message'   => "L'ordinateur est créé",
+                'computers' => ComputerCollection::collection($computers)
+            ], 200);
+        } else {
+            return response()->json([
+                'error'  => true,
+                'errorList'   => 'un problème est survenu dans la création',
+            ], 422);
+        }
     }
 
     /**
