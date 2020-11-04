@@ -30,6 +30,11 @@ export default new Vuex.Store({
         ],
 
         date: new Date().toISOString().substr(0, 10),
+        login: {
+            email: 'boyer.gilles@live.fr',
+            password: 'gilles'
+        },
+        connected: false
     },
     getters: {
         getListComputers: state => {
@@ -37,6 +42,9 @@ export default new Vuex.Store({
         },
         getDate: state => {
             return state.date
+        },
+        getLogin: state => {
+            return state.connected
         }
     },
     mutations: {
@@ -45,6 +53,9 @@ export default new Vuex.Store({
         },
         SET_DATE(state, date) {
             state.date = date
+        },
+        SET_CONNECTED(state, bool) {
+            state.connected = bool
         }
     },
     actions: {
@@ -53,6 +64,9 @@ export default new Vuex.Store({
         },
         changeDate(context, date) {
             context.commit('SET_DATE', date)
+        },
+        changeStatutConnected(context, bool) {
+            context.commit('SET_CONNECTED', bool)
         }
     },
     modules: {}

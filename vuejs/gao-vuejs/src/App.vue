@@ -5,7 +5,7 @@
       rel="stylesheet"
     />
     
-    <v-main>
+    <v-main class="bg-light">
       <router-view></router-view>
     </v-main>
   </v-app>
