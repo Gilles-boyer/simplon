@@ -1,4 +1,6 @@
 import addAttributionWithName from "../addAttributionWithName"
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     props: ['attribu'],
     components: {
@@ -9,23 +11,25 @@ export default {
             isEditing: null,
             userID: "",
             dialog: false,
-            client: [
-                { id: 1, nickName: 'Boyer Gilles' },
-                { id: 2, nickName: 'Boyer Lynda' },
-                { id: 3, nickName: 'Boyer Emilie' },
-                { id: 4, nickName: 'Boyer Emmanuelle' },
-            ],
             cache: { "disabled": true },
             invalid: true,
             buttonCreate: false,
         }
     },
+    mounted() {
+        this.listOfClient()
+    },
+    computed: {
+        ...mapGetters(['getClient'])
+    },
     methods: {
+        ...mapActions(['listOfClient']),
+
         addAttribution() {
             var nickName = ""
-            for (let index = 0; index < this.client.length; index++) {
-                if (this.client[index].id == this.userID) {
-                    nickName = this.client[index].nickName
+            for (let index = 0; index < this.getClient.length; index++) {
+                if (this.getClient[index].id == this.userID) {
+                    nickName = this.getClient[index].nickName
                 }
             }
             this.attribu.client.id = this.userID
@@ -53,8 +57,6 @@ export default {
                 this.buttonCreate = false
                 this.invalid = true
             }
-
         },
-
     },
 }

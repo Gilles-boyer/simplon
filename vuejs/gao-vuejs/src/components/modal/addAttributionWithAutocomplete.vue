@@ -25,7 +25,7 @@
             <v-row class="justify-content-center align-center">
               <v-col cols="10" align-self="center">
                 <v-autocomplete
-                  :items="client"
+                  :items="getClient"
                   :filter="customFilter"
                   :menu-props="cache"
                   color="white"
