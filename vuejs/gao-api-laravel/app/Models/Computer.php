@@ -9,7 +9,7 @@ class Computer extends Model
 {
     use HasFactory;
 
-        /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -17,4 +17,8 @@ class Computer extends Model
     protected $fillable = [
         'name',
     ];
+    public function attributions()
+    {
+        return $this->hasMany('App\Models\Attribution')->with('client');
+    }
 }

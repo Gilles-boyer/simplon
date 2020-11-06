@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ClientCollection extends JsonResource
+class AttributionCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -15,8 +15,13 @@ class ClientCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'  => $this->id,
-            'nickName' => $this->nickName
+            'id' => $this->id,
+            'date' => $this->date,
+            'time' => $this->time,
+            'client' => [
+                'id' => $this->client->id,
+                'nickName' => $this->client->nickName
+            ]
         ];
     }
 }

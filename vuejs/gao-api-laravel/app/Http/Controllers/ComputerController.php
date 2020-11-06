@@ -14,9 +14,27 @@ class ComputerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($date)
     {
-        $computers = Computer::all();
+        $request = ['date' => $date];
+
+        $validator = Validator::make(
+            $request,
+            [
+                'date' => 'required|date',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error'      => true,
+                'errorList'  => $validator->errors()
+            ]);
+        }
+
+        $computers = Computer::with(['attributions' => function ($query) use ($date) {
+            $query->where('date', $date);
+        }])->get();
 
         return ComputerCollection::collection($computers);
     }
@@ -29,10 +47,12 @@ class ComputerController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make( $request->all(),
-        [
-            'name' => 'required|string|max:100',
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string|max:100',
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([
@@ -64,47 +84,41 @@ class ComputerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Computer  $computer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Computer $computer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Computer  $computer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Computer $computer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Computer  $computer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Computer $computer)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Computer  $computer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Computer $computer)
+    public function destroy(Computer $computer, $id)
     {
-        //
+        $request = ['id' => $id];
+
+        $validator      =       Validator::make(
+            $request,
+            [
+                'id'       => 'required|exists:computers,id',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error'      => true,
+                'errorList'  => $validator->errors()
+            ]);
+        }
+
+        $verify = $computer->find($id)->delete();
+
+        if ($verify) {
+            return response()->json([
+                'error'  => false,
+                'message'   => "L'ordinateur est supprimé",
+            ], 200);
+        } else {
+            return response()->json([
+                'error'  => true,
+                'errorList'   => 'un problème est survenu dans la suppression',
+            ], 422);
+        }
     }
 }

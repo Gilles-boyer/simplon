@@ -16,7 +16,7 @@ class CreateAttributionsTable extends Migration
         Schema::create('attributions', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->time('time');
+            $table->integer('time');
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->foreignId('computer_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

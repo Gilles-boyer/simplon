@@ -29,10 +29,12 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),
-        [
-            'nickName' => 'required|string|max:100',
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nickName' => 'required|string|max:100',
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([
@@ -41,56 +43,22 @@ class ClientController extends Controller
             ]);
         }
 
-        $client = New Client;
+        $client = new Client;
 
         $client->nickName = $request->nickName;
 
         $verify = $client->save();
 
-        if($verify){
+        if ($verify) {
             return response()->json([
                 'error'     => false,
                 'message'   => 'le client est créé'
-            ],200);
-        }else {
+            ], 200);
+        } else {
             return response()->json([
                 'error'     => true,
                 'message'   => "le client n'est pas créé"
-            ],422);
+            ], 422);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Client $client)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Client $client)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Client $client)
-    {
-        //
     }
 }

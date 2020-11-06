@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\AttributionCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ComputerCollection extends JsonResource
@@ -14,10 +15,12 @@ class ComputerCollection extends JsonResource
      */
     public function toArray($request)
     {
+        $attribution = AttributionCollection::collection($this->attributions);
+
         return [
-            'id'=> $this->id,
+            'id' => $this->id,
             'name' => $this->name,
-            'attributions' => []
+            'attributions' => $attribution
         ];
     }
 }

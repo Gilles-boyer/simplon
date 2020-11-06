@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ComputerController;
+use App\Http\Controllers\AttributionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('computer')->group(function () {
-    Route::get ("/all", [ComputerController::class, 'index']);
+    Route::get ("/all/{date}", [ComputerController::class, 'index']);
     Route::post('/', [ComputerController::class, 'store']);
+    Route::delete('/{id}', [ComputerController::class, 'destroy']);
 });
 
 Route::prefix('client')->group(function () {
     Route::get ("/all", [ClientController::class, 'index']);
     Route::post('/', [ClientController::class, 'store']);
 });
+
+Route::post ("attribution", [AttributionController::class, 'store']);
+
+Route::delete('attribution/{id}', [AttributionController::class, 'destroy']);
+
 
