@@ -19,7 +19,7 @@
           >Etes-vous sure de vouloir supprimer l'Attribution : 
           <strong class="text-danger"> {{ attribu.client.nickName }}</strong> 
           à
-          <strong class="text-danger"> {{ attribu.hours }}</strong>
+          <strong class="text-danger"> {{ attribu.time }}h00</strong>
           ?
         </v-card-text>
         <v-card-actions>
