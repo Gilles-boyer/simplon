@@ -44,9 +44,8 @@ export default {
                 this.$store.state.confirmation = res.data.message
                 this.$store.state.snackbar = true //open confirmation snackbar
                 this.dialog = false
+                this.listOfPc(this.$store.state.date)
             }
-
-            this.listOfPc(this.$store.state.date)
         },
 
         customFilter(item, queryText, itemText) {

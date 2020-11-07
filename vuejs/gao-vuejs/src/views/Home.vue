@@ -20,7 +20,7 @@
         <!-- component Computer -->
         <cardComputer 
           :computer="computerData"
-          :indexPC="index" 
+          :indexPC="index"
         ></cardComputer>
         <!-- ------------------ -->
       </v-col>

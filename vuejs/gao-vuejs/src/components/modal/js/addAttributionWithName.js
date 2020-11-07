@@ -1,8 +1,9 @@
 import apiClient from '../../../service/user'
 import { mapActions } from 'vuex'
+import apiAttribution from "../../../service/attribution"
 
 export default {
-    props: ['attribution'],
+    props: ['attribution', 'idComputer'],
     data() {
         return {
             create: false,
@@ -48,10 +49,28 @@ export default {
             var res = await apiClient.create(data)
 
             if (res.data.error) {
-                this.error = res.data.errorList
+                return this.error = res.data.errorList
             } else {
                 this.listOfClient()
                 this.attribution.client.nickName = nickName;
+            }
+
+            var element = {
+                date: this.$store.state.date,
+                time: this.attribution.time,
+                computer_id: this.idComputer,
+                client_id: res.data.ClientId
+            }
+
+            var result = await apiAttribution.create(element)
+
+            if (result.data.error) {
+                this.error = result.data.errorList
+            } else {
+                this.$store.state.confirmation = result.data.message
+                this.$store.state.snackbar = true //open confirmation snackbar
+                this.dialog = false
+                this.listOfPc(this.$store.state.date)
             }
         },
         verifyData() {

@@ -25,6 +25,10 @@
         </v-card-title>
         <v-card-text>
           <v-container>
+            <v-alert v-show="error" border="top" color="red lighten-2" dark>
+              {{ error }}
+            </v-alert>
+
             <v-row class="justify-content-center align-center">
               <v-col cols="12" align-self="center">
                 <v-text-field

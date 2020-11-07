@@ -45,6 +45,7 @@
                 <addAttributionWithName
                   v-if="buttonCreate"
                   :attribution="attribu"
+                  :idComputer="computerId"
                   @bool="dialog = $event"
                 />
                 <!-- ---------------------------------- -->
