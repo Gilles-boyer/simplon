@@ -49,10 +49,13 @@ class ClientController extends Controller
 
         $verify = $client->save();
 
+
+
         if ($verify) {
             return response()->json([
                 'error'     => false,
-                'message'   => 'le client est créé'
+                'message'   => 'le client est créé',
+                'ClientId'  => $client->id
             ], 200);
         } else {
             return response()->json([

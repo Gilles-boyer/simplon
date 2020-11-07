@@ -16,7 +16,7 @@ class ClientCollection extends JsonResource
     {
         return [
             'id'  => $this->id,
-            'nickName' => $this->nickName
+            'nickName' => $this->nickName,
         ];
     }
 }
