@@ -25,7 +25,7 @@
         <!-- ------------------ -->
       </v-col>
     </v-row>
-    
+    <snackbar />
   </div>
 </template>
 

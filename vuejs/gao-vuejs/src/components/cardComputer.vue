@@ -31,7 +31,7 @@
       <!-- -------- -->
       <v-row v-for="(attribution, index) in computer.attributions" :key="index">
         <v-col align-self="center" md="3" class="font-weight-bold">
-          {{ attribution.hours }}
+          {{ attribution.time }}h00
         </v-col>
         <v-col
           align-self="center"
@@ -44,6 +44,7 @@
           <addAttributionWithAutocomplete 
             v-if="!attribution.client.nickName"
             :attribu="attribution"
+            :computerId="computer.id"
           />
           <!-- modal delete Attribution -->
           <deleteAttribution

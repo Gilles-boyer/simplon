@@ -6,7 +6,7 @@
       timeout="2000" 
       :centered="true"
     >
-      {{ text }}
+      {{ $store.state.confirmation }}
 
       <template v-slot:action="{ attrs }">
         <v-btn

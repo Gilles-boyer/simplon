@@ -20,6 +20,7 @@ export default new Vuex.Store({
 
         connected: false,
         snackbar: false,
+        confirmation: '',
     },
     getters: {
         getClient: state => {
@@ -60,8 +61,8 @@ export default new Vuex.Store({
             context.commit('SET_CONNECTED', bool)
         },
 
-        listOfPc: async function(context) {
-            var res = await apiComputer.index()
+        listOfPc: async function(context, date) {
+            var res = await apiComputer.index(date)
             context.commit('SET_LIST_COMPUTERS', res.data.data)
         },
 

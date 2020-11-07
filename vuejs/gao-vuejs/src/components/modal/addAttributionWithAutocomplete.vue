@@ -21,6 +21,10 @@
           </v-btn>
         </v-card-title>
         <v-card-text>
+          <v-alert v-show="error" border="top" color="red lighten-2" dark>
+            {{ error }}
+          </v-alert>
+
           <v-container>
             <v-row class="justify-content-center align-center">
               <v-col cols="10" align-self="center">
@@ -38,10 +42,10 @@
               </v-col>
               <v-col cols="2" align-self="center">
                 <!-- Modal attribution with create user -->
-                <addAttributionWithName 
-                  v-if="buttonCreate" 
-                  :attribution="attribu" 
-                  @bool="dialog=$event"
+                <addAttributionWithName
+                  v-if="buttonCreate"
+                  :attribution="attribu"
+                  @bool="dialog = $event"
                 />
                 <!-- ---------------------------------- -->
               </v-col>

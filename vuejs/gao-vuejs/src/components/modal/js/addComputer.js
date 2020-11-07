@@ -1,13 +1,7 @@
 import { mapActions } from 'vuex'
 import apiComputer from '../../../service/computer'
-import snackbar from '../snackbarConfirmation'
-
 export default {
     name: 'addComputer',
-
-    components: {
-        snackbar,
-    },
 
     data: () => ({
         dialog: false,
@@ -18,7 +12,6 @@ export default {
             min: v => v.length >= 3 || 'Min 3 characters',
         },
         error: null,
-        confirmation: null
     }),
 
     methods: {
@@ -48,9 +41,9 @@ export default {
                 this.error = res.data.errorList
             } else {
                 this.name = "";
-                this.confirmation = res.data.message
+                this.$store.state.confirmation = res.data.message
                 this.$store.state.snackbar = true //open confirmation snackbar
-                this.listOfPc()
+                this.listOfPc(this.$store.state.date)
                 this.dialog = false
             }
         },

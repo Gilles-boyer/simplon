@@ -53,9 +53,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <!-- snackbar confirmation message -->
-    <snackbar :text="confirmation" />
-    <!-- ----------------------------- -->
   </v-row>
 </template>
 

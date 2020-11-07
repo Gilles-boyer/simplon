@@ -5,7 +5,10 @@ export default {
     create(data) {
         return api.post('computer', data)
     },
-    index() {
-        return api.get('computer/all')
+    index(date) {
+        return api.get('computer/all/' + date)
+    },
+    delete(id) {
+        return api.delete('computer/' + id)
     }
 }

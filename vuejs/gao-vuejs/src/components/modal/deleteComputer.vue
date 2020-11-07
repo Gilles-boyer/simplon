@@ -7,7 +7,6 @@
         </v-btn>
       </template>
       <v-card>
-
         <v-card-title class="headline d-flex justify-content-between">
           {{ "Supprimer un Ordinateur" }}
           <v-btn icon color="red" @click="dialog = false">
@@ -16,7 +15,8 @@
         </v-card-title>
 
         <v-card-text
-          >Etes-vous sure de vouloir supprime l'Ordinateur : <strong class="text-danger"> {{ pc.name }}</strong> ?</v-card-text
+          >Etes-vous sure de vouloir supprime l'Ordinateur :
+          <strong class="text-danger"> {{ pc.name }}</strong> ?</v-card-text
         >
         <v-card-actions>
           <v-spacer></v-spacer>

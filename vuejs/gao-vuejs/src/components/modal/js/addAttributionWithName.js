@@ -53,9 +53,6 @@ export default {
                 this.listOfClient()
                 this.attribution.client.nickName = nickName;
             }
-
-
-
         },
         verifyData() {
             if (this.firstName.length > 2 && typeof(this.firstName) == "string" && this.lastName.length > 2) {

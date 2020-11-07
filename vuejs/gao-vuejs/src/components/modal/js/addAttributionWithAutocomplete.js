@@ -1,8 +1,9 @@
 import addAttributionWithName from "../addAttributionWithName"
 import { mapActions, mapGetters } from 'vuex'
+import apiAttribution from "../../../service/attribution"
 
 export default {
-    props: ['attribu'],
+    props: ['attribu', 'computerId'],
     components: {
         addAttributionWithName
     },
@@ -14,6 +15,8 @@ export default {
             cache: { "disabled": true },
             invalid: true,
             buttonCreate: false,
+            confirmation: null,
+            error: null,
         }
     },
     mounted() {
@@ -23,17 +26,27 @@ export default {
         ...mapGetters(['getClient'])
     },
     methods: {
-        ...mapActions(['listOfClient']),
+        ...mapActions(['listOfClient', 'listOfPc']),
 
-        addAttribution() {
-            var nickName = ""
-            for (let index = 0; index < this.getClient.length; index++) {
-                if (this.getClient[index].id == this.userID) {
-                    nickName = this.getClient[index].nickName
-                }
+        addAttribution: async function() {
+            var data = {
+                date: this.$store.state.date,
+                time: this.attribu.time,
+                computer_id: this.computerId,
+                client_id: this.userID
             }
-            this.attribu.client.id = this.userID
-            this.attribu.client.nickName = nickName
+
+            var res = await apiAttribution.create(data)
+
+            if (res.data.error) {
+                this.error = res.data.errorList
+            } else {
+                this.$store.state.confirmation = res.data.message
+                this.$store.state.snackbar = true //open confirmation snackbar
+                this.dialog = false
+            }
+
+            this.listOfPc(this.$store.state.date)
         },
 
         customFilter(item, queryText, itemText) {

@@ -14,11 +14,12 @@ export default {
     },
     methods: {
         ...mapActions(['changeDate']),
+        ...mapActions(['listOfPc']),
 
         dateChange() {
             this.$refs.menu.save(this.date)
             this.changeDate(this.date)
-            console.log(this.getDate)
+            this.listOfPc(this.date)
         }
     },
     created() {
