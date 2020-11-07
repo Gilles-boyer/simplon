@@ -3,6 +3,7 @@ import cardComputer from '../../components/cardComputer'
 import addComputer from '../../components/modal/addComputer'
 import datePicker from '../../components/datePicker'
 import snackbar from '../../components/modal/snackbarConfirmation'
+import apiLogin from '../../service/login'
 
 export default {
     name: 'Home',
@@ -17,9 +18,17 @@ export default {
         ...mapGetters(['getListComputers']),
     },
     methods: {
-        ...mapActions(['listOfPc'])
+        ...mapActions(['listOfPc']),
+
+        logout: async function() {
+            var res = await apiLogin.logout()
+            console.log(res.data)
+            localStorage.removeItem('token')
+            this.$store.state.connected = false
+            this.$router.push('/login')
+        },
     },
-    created() {
+    mounted() {
         this.listOfPc(this.getDate)
     },
 }

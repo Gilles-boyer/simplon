@@ -11,22 +11,19 @@ export default new Vuex.Store({
 
         date: new Date().toISOString().substr(0, 10),
 
-        login: {
-            email: 'boyer.gilles@live.fr',
-            password: 'gilles'
-        },
-
         clients: [],
 
+        token: null,
         connected: false,
+
         snackbar: false,
+
         confirmation: '',
     },
     getters: {
         getClient: state => {
             return state.clients
         },
-
         getListComputers: state => {
             return state.computers
         },
@@ -70,6 +67,7 @@ export default new Vuex.Store({
             var res = await apiClient.index()
             context.commit('SET_CLIENTS', res.data.data)
         }
+
     },
     modules: {}
 })
