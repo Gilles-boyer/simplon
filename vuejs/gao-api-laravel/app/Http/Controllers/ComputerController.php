@@ -34,7 +34,7 @@ class ComputerController extends Controller
 
         $computers = Computer::with(['attributions' => function ($query) use ($date) {
             $query->where('date', $date);
-        }])->get();
+        }])->paginate(4);
 
         return ComputerCollection::collection($computers);
     }
