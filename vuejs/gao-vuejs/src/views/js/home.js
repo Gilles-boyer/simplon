@@ -13,12 +13,28 @@ export default {
         datePicker,
         snackbar
     },
+    data() {
+        return {
+            left: false,
+            right: false,
+            last_page: null,
+        }
+    },
     computed: {
         ...mapGetters(['getDate']),
         ...mapGetters(['getListComputers']),
     },
     methods: {
         ...mapActions(['listOfPc']),
+
+        changePageRight() {
+            this.$store.state.page = this.$store.state.page + 1
+            this.listOfPc(this.getDate)
+        },
+        changePageLeft() {
+            this.$store.state.page = this.$store.state.page - 1
+            this.listOfPc(this.getDate)
+        },
 
         logout: async function() {
             var res = await apiLogin.logout()

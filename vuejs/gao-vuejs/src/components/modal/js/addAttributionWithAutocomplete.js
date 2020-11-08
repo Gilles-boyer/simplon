@@ -57,10 +57,14 @@ export default {
 
                 if (!result) {
                     this.buttonCreate = true
-                    this.invalid = true
                 } else {
                     this.buttonCreate = false
+                }
+
+                if (this.userID > 0) {
                     this.invalid = false
+                } else {
+                    this.invalid = true
                 }
                 return result
 

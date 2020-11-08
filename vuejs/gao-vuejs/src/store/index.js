@@ -8,6 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         computers: [],
+        page: 1,
+        last_page: null,
 
         date: new Date().toISOString().substr(0, 10),
 
@@ -46,6 +48,9 @@ export default new Vuex.Store({
         },
         SET_CLIENTS(state, clients) {
             state.clients = clients
+        },
+        SET_LAST_PAGE(state, number) {
+            state.last_page = number
         }
     },
     actions: {
@@ -61,6 +66,7 @@ export default new Vuex.Store({
         listOfPc: async function(context, date) {
             var res = await apiComputer.index(date)
             context.commit('SET_LIST_COMPUTERS', res.data.data)
+            context.commit('SET_LAST_PAGE', res.data.meta.last_page)
         },
 
         listOfClient: async function(context) {
