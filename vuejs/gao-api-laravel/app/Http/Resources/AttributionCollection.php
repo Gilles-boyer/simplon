@@ -21,7 +21,7 @@ class AttributionCollection extends JsonResource
             'client' => [
                 'id' => $this->client->id,
                 'nickName' => $this->client->nickName
-            ]
+            ],
         ];
     }
 }
