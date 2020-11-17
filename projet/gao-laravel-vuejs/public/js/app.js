@@ -100117,7 +100117,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = (axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  baseURL: "http://127.0.0.1:8000/api",
+  baseURL: "http://gao.localhost/api",
   headers: {
     'Authorization': 'Bearer ' + localStorage.getItem('token'),
     'Content-Type': 'application/json',
@@ -100316,8 +100316,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/gilles/simplon/projet/gao-laravel-vuejs/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/gilles/simplon/projet/gao-laravel-vuejs/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/node/app/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/node/app/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

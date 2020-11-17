@@ -78,13 +78,9 @@
 </template>
 
 <script>
-
 import client from "../../service/client"
-
 export default {
-
     props:['data'],
-
   data() {
     return {
       create: false,
@@ -103,7 +99,6 @@ export default {
       buttonCreate: false,
     };
   },
-
   methods: {
     //change first letter to uppercase
     strUcFirst: function (a) {
@@ -113,11 +108,8 @@ export default {
     //create user///////////////////////////////
       var firstName = this.firstName.toLowerCase();
       firstName = this.strUcFirst(firstName);
-
        var lastName = this.lastName.toUpperCase();
-
       var nickName = firstName + " " + lastName;
-
       var data = {
         nickName: nickName,
       };
@@ -133,7 +125,6 @@ export default {
         }
         this.invalid = true
     },
-
     closeModal: function () {
         this.$emit("bool", false)
     },
@@ -144,10 +135,8 @@ export default {
         computer_id: this.data.theOrdi.id,
         timeStart: this.data.attribut.time,
       };
-
       var results = await client.attribution(dat);
       this.data.attribut.nickName = results.data.client.nickName;
-
       console.log(results)
       if(results.data.client.nickName){
          this.$emit("bool", false)

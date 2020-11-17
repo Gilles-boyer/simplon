@@ -1,5 +1,8 @@
 /node_modules
 /public/hot
+/.docker/logs
+/.docker/volumes
+
 /public/storage
 /storage/*.key
 /vendor
